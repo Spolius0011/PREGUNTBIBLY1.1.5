@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Bíblico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Juego Bíblico 1.1.5</h1>
+    <div class="author-name">Author: Tiago Eliecer Torres Rolon</div>
+    <div class="container">
+        <div id="score-container" class="score-container">Puntaje: 0</div>
+        <div id="progress-container" class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="question-container" class="question-container"></div>
+        <div id="options-container" class="options-container"></div>
+        <div id="result-container" class="result-container hidden"></div>
+        <div id="timer-container" class="timer-container"></div>
+        <div id="level-message-container" class="level-message-container hidden"></div>
+        <!-- Botón de PayPal -->
+        <div id="donate-button-container">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <!-- Añade el atributo async para cargar el script de manera asíncrona -->
+            <script>
+                PayPal.Donation.Button({
+                    env: 'production',
+                    hosted_button_id: 'JL4RLCZEM7V8U',
+                    image: {
+                        src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+                        alt: 'Donate with PayPal button',
+                        title: 'PayPal - The safer, easier way to pay online!'
+                    }
+                }).render('#donate-button');
+            </script>
+        </div>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio id="audio" controls loop>
+        <source src="sounds/cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+    
+    <script>
+        var audio = document.getElementById("audio");
+        audio.addEventListener("ended", function() {
+          audio.currentTime = 0;
+          audio.play();
+        });
+    </script>
+    
+    <script src="script.js" async></script>
+    <!-- Añade el atributo async para cargar el script de manera asíncrona -->
+</body>
+</html>
